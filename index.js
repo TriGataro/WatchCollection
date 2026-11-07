@@ -397,9 +397,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="badge text-bg-primary me-1">${watch.Marca}</span>
                     <strong class="fs-6">${watch.Modelo}</strong>
                 </div>
-                <div class="carousel-select-hint">
-                    <i class="bi bi-hand-index-thumb"></i> Ver completo y datos
-                </div>
             `;
 
             slideContent.appendChild(img);
