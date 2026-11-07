@@ -1,0 +1,7 @@
+# Archivos y carpetas ocultas
+.*
+!.gitignore
+
+# Carpeta de agentes y configuración
+.agents/
+.gemini/

@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Estilos Principales - Colección de Relojes
+   Fuente tipográfica: Red Hat Text (Google Fonts)
+   Compatible con temas Claro y Oscuro (Bootstrap 5.3)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Variables CSS y Definición de Temas de Color
+   -------------------------------------------------------------------------- */
+:root {
+    --font-primary: 'Red Hat Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Variables de Tema Claro por defecto */
+    --body-bg: #f8fafc;
+    --card-surface: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --carousel-bg: #0f172a;
+    --detail-image-bg: #0b0f19;
+    --pros-bg: rgba(25, 135, 84, 0.08);
+    --pros-border: rgba(25, 135, 84, 0.3);
+    --contras-bg: rgba(220, 53, 69, 0.08);
+    --contras-border: rgba(220, 53, 69, 0.3);
+    --observaciones-bg: rgba(13, 110, 253, 0.08);
+    --observaciones-border: rgba(13, 110, 253, 0.25);
+    --function-card-bg: #f1f5f9;
+    --function-card-border: rgba(0, 0, 0, 0.06);
+    --thumb-active-border: #0d6efd;
+    --thumb-bg: #ffffff;
+    --footer-link-color: #0d6efd;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables de Tema Oscuro */
+    --body-bg: #0b0f19;
+    --card-surface: #131b2e;
+    --card-border: rgba(255, 255, 255, 0.1);
+    --carousel-bg: #080c14;
+    --detail-image-bg: #080c14;
+    --pros-bg: rgba(25, 135, 84, 0.15);
+    --pros-border: rgba(25, 135, 84, 0.4);
+    --contras-bg: rgba(220, 53, 69, 0.15);
+    --contras-border: rgba(220, 53, 69, 0.4);
+    --observaciones-bg: rgba(13, 110, 253, 0.15);
+    --observaciones-border: rgba(13, 110, 253, 0.35);
+    --function-card-bg: #1a233a;
+    --function-card-border: rgba(255, 255, 255, 0.08);
+    --thumb-active-border: #38bdf8;
+    --thumb-bg: #1a233a;
+    --footer-link-color: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   Tipografía y Estilos Base
+   -------------------------------------------------------------------------- */
+body.site-body {
+    font-family: var(--font-primary);
+    background-color: var(--body-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: -0.01em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.brand-icon {
+    font-size: 1.5rem;
+    color: #0d6efd;
+}
+
+.tracking-tight {
+    letter-spacing: -0.03em;
+}
+
+.hero-description {
+    max-width: 680px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de Navegación
+   -------------------------------------------------------------------------- */
+.site-navbar {
+    background-color: var(--card-surface);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Carrusel de Relojes
+   -------------------------------------------------------------------------- */
+.carousel-card {
+    background-color: var(--card-surface);
+    border: 1px solid var(--card-border) !important;
+    border-radius: 1rem;
+}
+
+.carousel-slide-content {
+    background-color: var(--carousel-bg);
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    user-select: none;
+}
+
+.carousel-watch-img {
+    max-height: 420px;
+    width: auto;
+    max-width: 90%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.carousel-slide-content:hover .carousel-watch-img {
+    transform: scale(1.03);
+}
+
+.carousel-caption-custom {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.carousel-caption-info {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-select-hint {
+    background: rgba(13, 110, 253, 0.9);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
+}
+
+/* Controles del Carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3.5rem;
+    opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 1.5rem;
+    background-size: 55%;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 28px;
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de Miniaturas de Relojes
+   -------------------------------------------------------------------------- */
+.thumbnails-track {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding: 0.5rem 0.25rem 0.75rem 0.25rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.thumbnails-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumbnails-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.thumbnails-track::-webkit-scrollbar-thumb {
+    background: rgba(125, 125, 125, 0.35);
+    border-radius: 3px;
+}
+
+.thumb-item {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 80px;
+    background-color: var(--thumb-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem;
+    transition: all 0.25s ease;
+}
+
+.thumb-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(13, 110, 253, 0.5);
+}
+
+.thumb-item.active {
+    border-color: var(--thumb-active-border);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.3);
+}
+
+.thumb-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   Sección de Detalle: Imagen Completa e Información Abajo
+   -------------------------------------------------------------------------- */
+.detail-card {
+    background-color: var(--card-surface);
+    border: 1px solid var(--card-border) !important;
+    border-radius: 1.25rem;
+    scroll-margin-top: 5rem;
+}
+
+.detail-image-wrapper {
+    background-color: var(--detail-image-bg);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.detail-full-img {
+    max-height: 520px;
+    width: auto;
+    max-width: 95%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6));
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.detail-full-img:hover {
+    transform: scale(1.02);
+}
+
+.observaciones-box {
+    background-color: var(--observaciones-bg);
+    border: 1px solid var(--observaciones-border);
+}
+
+.pros-card {
+    background-color: var(--pros-bg);
+    border: 1px solid var(--pros-border);
+}
+
+.contras-card {
+    background-color: var(--contras-bg);
+    border: 1px solid var(--contras-border);
+}
+
+/* Tarjetas de Funciones y Especificaciones */
+.function-item-card {
+    background-color: var(--function-card-bg);
+    border: 1px solid var(--function-card-border);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.function-item-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(13, 110, 253, 0.4);
+}
+
+.function-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.function-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Modal de Imagen Completa
+   -------------------------------------------------------------------------- */
+.modal-zoom-img {
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   Pie de Página (Footer)
+   -------------------------------------------------------------------------- */
+.site-footer {
+    background-color: var(--card-surface);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-author-link {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-author-link:hover {
+    opacity: 0.85;
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Animaciones de Actualización de Contenido
+   -------------------------------------------------------------------------- */
+.fade-in-content {
+    animation: fadeInAnimation 0.4s ease-out;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0.3;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Ajustes Responsivos para Dispositivos Móviles
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .carousel-slide-content {
+        height: 320px;
+    }
+
+    .carousel-watch-img {
+        max-height: 280px;
+    }
+
+    .carousel-caption-info {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    .carousel-select-hint {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .detail-image-wrapper {
+        min-height: 300px;
+        padding: 1.25rem 0.75rem;
+    }
+
+    .detail-full-img {
+        max-height: 360px;
+    }
+
+    .thumb-item {
+        width: 65px;
+        height: 65px;
+    }
+}
