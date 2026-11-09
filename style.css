@@ -181,6 +181,29 @@ main {
     border-radius: 2px;
 }
 
+/* Botón Reloj al Azar */
+.btn-random-watch {
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-random-watch:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(13, 110, 253, 0.3) !important;
+}
+
+.btn-random-watch:active {
+    transform: translateY(0);
+}
+
+.btn-random-watch .bi-shuffle {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-random-watch:active .bi-shuffle {
+    transform: rotate(180deg);
+}
+
 /* --------------------------------------------------------------------------
    Barra de Miniaturas de Relojes
    -------------------------------------------------------------------------- */

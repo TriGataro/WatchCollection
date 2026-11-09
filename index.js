@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselIndicators = document.getElementById('carouselIndicators');
     const thumbnailsTrack = document.getElementById('thumbnailsTrack');
     const watchesCountBadge = document.getElementById('watchesCountBadge');
+    const randomWatchBtn = document.getElementById('randomWatchBtn');
 
     // Elementos de la sección de detalle
     const watchDetailSection = document.getElementById('watchDetailSection');
@@ -509,7 +510,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --------------------------------------------------------------------------
-    // 12. Inicialización General de la Página
+    // 12. Selección de Reloj al Azar
+    // --------------------------------------------------------------------------
+    /**
+     * Elige un reloj al azar de la colección y sincroniza el carrusel y la vista de detalle.
+     */
+    function selectRandomWatch() {
+        if (!Array.isArray(watchCollection) || watchCollection.length === 0) {
+            return;
+        }
+
+        // Si hay más de un reloj, seleccionar uno diferente al actualmente visible
+        let randomIndex = Math.floor(Math.random() * watchCollection.length);
+        if (watchCollection.length > 1 && randomIndex === currentSelectedIndex) {
+            randomIndex = (randomIndex + 1 + Math.floor(Math.random() * (watchCollection.length - 1))) % watchCollection.length;
+        }
+
+        // Desplazar el carrusel al reloj elegido al azar
+        if (carouselInstance) {
+            carouselInstance.to(randomIndex);
+        }
+
+        // Actualizar datos de detalle y miniatura activa sin desplazar la pantalla
+        displayWatchDetail(randomIndex, false);
+    }
+
+    if (randomWatchBtn) {
+        randomWatchBtn.addEventListener('click', selectRandomWatch);
+    }
+
+    // --------------------------------------------------------------------------
+    // 13. Inicialización General de la Página
     // --------------------------------------------------------------------------
     initTheme();
     buildCarousel();
