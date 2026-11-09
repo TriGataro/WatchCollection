@@ -125,13 +125,12 @@ main {
 
 .carousel-caption-custom {
     position: absolute;
-    bottom: 1.25rem;
+    top: 1.25rem;
     left: 1.25rem;
-    right: 1.25rem;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     pointer-events: none;
+    z-index: 2;
 }
 
 .carousel-caption-info {
@@ -370,6 +369,11 @@ main {
 
     .carousel-watch-img {
         max-height: 280px;
+    }
+
+    .carousel-caption-custom {
+        top: 0.75rem;
+        left: 0.75rem;
     }
 
     .carousel-caption-info {

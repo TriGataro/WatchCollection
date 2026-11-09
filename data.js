@@ -216,7 +216,7 @@ const watchCollection=[
         "Foto":"Img/Casio/w221h.jpg",
         "Tipo":"Digital",
         "Pros":"Muy legible",
-        "Contras":"No tiene mute de botones",
+        "Contras":"Pocas alarmas",
         "Observaciones":"Timer con avisos y cronógrafo con 5 segundos de aviso",
         "Funciones" : {
             "Luz":"Si",
@@ -225,7 +225,7 @@ const watchCollection=[
             "Cronógrafo":"24 hrs",
             "Temporizador":"Si",
             "Alarma":"3 alarmas",
-            "Mute": "No",
+            "Mute": "Si",
             "DST (Daylight Saving Time)":"Si",
             "Water Resist":"50 mts."
         }    
